@@ -3,7 +3,6 @@ import Register from "./pages/register/Register";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
   Outlet,
   Navigate,
 } from "react-router-dom";
@@ -22,11 +21,12 @@ function App() {
   const { currentUser } = useContext(AuthContext);
 
   const { darkMode } = useContext(DarkModeContext);
+
   const queryClient = new QueryClient();
+
   const Layout = () => {
     return (
       <QueryClientProvider client={queryClient}>
-        {" "}
         <div className={`theme-${darkMode ? "dark" : "light"}`}>
           <Navbar />
           <div style={{ display: "flex" }}>

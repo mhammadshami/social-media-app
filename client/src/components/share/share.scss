@@ -16,13 +16,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
 
         .left {
           display: flex;
           align-items: center;
           flex: 3;
-
           img {
             width: 40px;
             height: 40px;
@@ -39,12 +37,10 @@
             color: themed("textColor");
           }
         }
-
         .right {
+          flex: 1;
           display: flex;
           justify-content: flex-end;
-          flex: 1;
-
           .file {
             width: 100px;
             height: 100px;

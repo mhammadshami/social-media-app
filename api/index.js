@@ -1,14 +1,15 @@
 import express from "express";
 const app = express();
+import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import commentRoutes from "./routes/comments.js";
 import likeRoutes from "./routes/likes.js";
-import authRoutes from "./routes/auth.js";
+import relationshipRoutes from "./routes/relationships.js";
+import storyRoutes from "./routes/stories.js";
 import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser";
-import jwt from "jsonwebtoken";
 
 //middlewares
 app.use((req, res, next) => {
@@ -38,11 +39,14 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   const file = req.file;
   res.status(200).json(file.filename);
 });
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/likes", likeRoutes);
+app.use("/api/relationships", relationshipRoutes);
+app.use("/api/stories", storyRoutes);
 
 app.listen(8800, () => {
   console.log("API working!");

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import "./register.scss";
+import axios from "axios";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -13,10 +13,7 @@ const Register = () => {
   const [err, setErr] = useState(null);
 
   const handleChange = (e) => {
-    setInputs((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleClick = async (e) => {
@@ -28,7 +25,9 @@ const Register = () => {
       setErr(err.response.data);
     }
   };
-  console.log("err", err);
+
+  console.log(err);
+
   return (
     <div className="register">
       <div className="card">
